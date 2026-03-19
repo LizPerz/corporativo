@@ -19,6 +19,7 @@ class SecurityPlugin extends Injectable {
 
         // 2. LISTA BLANCA
         $rutasPublicas = [
+            'index' => ['index'], // <--- ¡AÑADE ESTA LÍNEA!
             'login' => ['index', 'auth'],
             'principal' => ['index'] 
         ];
