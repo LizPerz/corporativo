@@ -1,47 +1,36 @@
 <?php
 use Phalcon\Di\FactoryDefault;
+use Phalcon\Mvc\Application;
 
+// ACTIVAR ERRORES PARA DEBUGGING
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
+// AGREGA ESTA LÍNEA PARA CARGAR JWT Y OTRAS LIBRERÍAS
+include_once BASE_PATH . '/vendor/autoload.php';
 
 try {
-
-    /**
-     * The FactoryDefault Dependency Injector automatically registers
-     * the services that provide a full stack framework.
-     */
     $di = new FactoryDefault();
 
-    /**
-     * Handle routes
-     */
-    include APP_PATH . '/config/router.php';
+    $loader = new \Phalcon\Loader();
+    $loader->registerDirs([
+        APP_PATH . '/controllers/',
+        APP_PATH . '/models/'
+    ])->register();
 
-    /**
-     * Read services
-     */
     include APP_PATH . '/config/services.php';
 
-    /**
-     * Get config service for use in inline setup below
-     */
-    $config = $di->getConfig();
-
-    /**
-     * Include Autoloader
-     */
-    include APP_PATH . '/config/loader.php';
-
-    /**
-     * Handle the request
-     */
-    $application = new \Phalcon\Mvc\Application($di);
-
-    echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
+    $application = new Application($di);
+    
+    // Capturamos la URL correctamente
+    $url = $_GET['_url'] ?? '/';
+    echo $application->handle($url)->getContent();
 
 } catch (\Exception $e) {
-    echo $e->getMessage() . '<br>';
-    echo '<pre>' . $e->getTraceAsString() . '</pre>';
+   echo "<h1>Error Detectado</h1>";
+    echo "<b>Mensaje:</b> " . $e->getMessage() . "<br>";
+    echo "<b>Archivo:</b> " . $e->getFile() . " en línea " . $e->getLine();
+    exit; // Detenemos todo para leer el error
 }

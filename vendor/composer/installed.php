@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => null,
+        'reference' => '1af70cd4e363bfe564b317a2794600defd8cb0b3',
         'name' => '__root__',
         'dev' => true,
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => null,
+            'reference' => '1af70cd4e363bfe564b317a2794600defd8cb0b3',
             'dev_requirement' => false,
         ),
         'firebase/php-jwt' => array(
@@ -27,6 +27,24 @@
             'aliases' => array(),
             'reference' => '4dd1e007f22a927ac77da5a3fbb067b42d3bc224',
             'dev_requirement' => false,
+        ),
+        'jetbrains/phpstorm-stubs' => array(
+            'pretty_version' => 'v2025.3',
+            'version' => '2025.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jetbrains/phpstorm-stubs',
+            'aliases' => array(),
+            'reference' => 'd1ee5e570343bd4276a3d5959e6e1c2530b006d0',
+            'dev_requirement' => true,
+        ),
+        'phalcon/ide-stubs' => array(
+            'pretty_version' => 'v4.1.0',
+            'version' => '4.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phalcon/ide-stubs',
+            'aliases' => array(),
+            'reference' => '77384e4f42542f11b065b2a860b9bca2ea20ad5a',
+            'dev_requirement' => true,
         ),
     ),
 );

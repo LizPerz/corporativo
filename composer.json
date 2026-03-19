@@ -1,5 +1,9 @@
 {
     "require": {
         "firebase/php-jwt": "^6.4"
+    },
+    "require-dev": {
+        "phalcon/ide-stubs": "^4.1",
+        "jetbrains/phpstorm-stubs": "^2025.3"
     }
 }
