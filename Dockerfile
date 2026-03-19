@@ -25,3 +25,7 @@ RUN chown -R www-data:www-data /var/www/html
 
 # 5. Puerto de salida
 EXPOSE 80
+
+# Crear las carpetas por si no existen en GitHub y darles permisos totales (777)
+RUN mkdir -p /var/www/html/cache && chmod -R 777 /var/www/html/cache
+RUN mkdir -p /var/www/html/public/uploads/usuarios && chmod -R 777 /var/www/html/public/uploads/usuarios
